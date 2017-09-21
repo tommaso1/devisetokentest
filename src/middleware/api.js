@@ -10,6 +10,7 @@ export const authFetch = (url,config) => {
     return (new Promise((resolve)=>{
         result.then((response) => {
             let newAccessToken = response.headers.get('access-token');
+
             if(typeof newAccessToken !== "undefined") {
                 sessionStorage.setItem('access-token', newAccessToken);
                 console.log('headers aggiornati')

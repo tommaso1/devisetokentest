@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import {
     LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, ARTICLES_FETCH_REQUEST, ARTICLES_FETCH_FAILURE, ARTICLES_FETCH_SUCCESS,
-    ARTICLE_DESTROY_REQUEST,ARTICLE_DESTROY_FAILURE,ARTICLE_DESTROY_SUCCESS
+    ARTICLE_DESTROY_REQUEST,ARTICLE_DESTROY_FAILURE,ARTICLE_DESTROY_SUCCESS, ARTICLE_CREATION_FAILURE,ARTICLE_CREATION_SUCCESS,ARTICLE_CREATION_REQUEST
 } from './../actions';
 
 //reducer che gestisce il login
@@ -54,6 +54,38 @@ function articles(state = {
                 articles: action.articles
             });
         case ARTICLES_FETCH_FAILURE:
+            return Object.assign({}, state, {
+                isFetching: false,
+                articles : state.articles,
+                errorMessage: action.message
+            });
+        case ARTICLE_CREATION_REQUEST:
+            return Object.assign({}, state, {
+                isFetching: true,
+                articles: state.articles
+            });
+        case ARTICLE_CREATION_SUCCESS:
+            return Object.assign({}, state, {
+                isFetching: false,
+                articles: action.articles
+            });
+        case ARTICLE_CREATION_FAILURE:
+            return Object.assign({}, state, {
+                isFetching: false,
+                articles : state.articles,
+                errorMessage: action.message
+            });
+            case ARTICLE_DESTROY_REQUEST:
+            return Object.assign({}, state, {
+                isFetching: true,
+                articles: state.articles
+            });
+        case ARTICLE_DESTROY_SUCCESS:
+            return Object.assign({}, state, {
+                isFetching: false,
+                articles: action.articles
+            });
+        case ARTICLE_DESTROY_FAILURE:
             return Object.assign({}, state, {
                 isFetching: false,
                 articles : state.articles,
