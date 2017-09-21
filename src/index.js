@@ -11,6 +11,7 @@ import { Route, HashRouter } from 'react-router-dom';
 
 import App from './components/App';
 import Index from './components/Index';
+import CreateArticle from './containers/CreateArticle';
 
 const loggerMiddleware = createLogger();
 let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore);
@@ -24,6 +25,7 @@ render(
         <HashRouter basename={'/'}>
             <div>
                 <Route path="/login" component={App}/>
+                <Route path="/new-article" component={CreateArticle}/>
                 <Route exact path="/" component={Index}/>
             </div>
         </HashRouter>

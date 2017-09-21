@@ -9,6 +9,7 @@ const Articles = ({articles, fetch,destroyArticle , current_user}) => {
     return (
         <div>
             <button onClick={()=>{fetch()}}>fetch</button>
+            {current_user.id !== null && <a href={'/#/new-article'}>Nuovo articolo</a>}
             <div className="row">
                 {articles.map((article, i) => { return (
                     <div key={i} className="col-md-10 col-md-offset-1">

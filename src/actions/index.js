@@ -13,6 +13,10 @@ export const ARTICLE_DESTROY_REQUEST = 'ARTICLE_DESTROY_REQUEST';
 export const ARTICLE_DESTROY_SUCCESS = 'ARTICLE_DESTROY_SUCCESS';
 export const ARTICLE_DESTROY_FAILURE = 'ARTICLE_DESTROY_FAILURE';
 
+export const ARTICLE_CREATION_REQUEST = 'ARTICLE_DESTROY_REQUEST';
+export const ARTICLE_CREATION_SUCCESS = 'ARTICLE_DESTROY_SUCCESS';
+export const ARTICLE_CREATION_FAILURE = 'ARTICLE_DESTROY_FAILURE';
+
 export function requestLogin(creds) {
     return {
         type: LOGIN_REQUEST,
@@ -161,6 +165,50 @@ export const destroyArticle = (id) => {
 
 
     }
+};
+
+
+export const requestArticleCreation = () => {
+    return {
+        type: ARTICLE_CREATION_REQUEST,
+        isFetching: true,
+    }
+};
+export const articleCreationSuccess = () => {
+    return {
+        type: ARTICLE_CREATION_SUCCESS,
+        isFetching: false,
+    }
+};
+export const articlesCreationError = (message) => {
+    return {
+        type: ARTICLE_CREATION_FAILURE,
+        isFetching: false,
+        message
+    }
+};
+
+export const createArticle = (article) => {
+    return function (dispatch) {
+        dispatch(requestArticleCreation());
+        return authFetch(BASE_URL+'articles',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: article.title,
+                body: article.body
+            })
+        }).then((response) => {
+            if (response.ok) {
+                dispatch(articleCreationSuccess());
+            } else {
+                dispatch(articlesCreationError(response.statusText));
+            }
+        })
+    }
+
 };
 
 
