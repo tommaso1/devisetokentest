@@ -5,6 +5,17 @@ export const authFetch = (url,config) => {
     config.headers['client'] = sessionStorage.getItem('client');
     config.headers['expiry'] = sessionStorage.getItem('expiry');
     config.headers['uid'] = sessionStorage.getItem('uid');
-    return fetch(url, config)
+    let result = fetch(url, config);
+
+    return (new Promise((resolve)=>{
+        result.then((response) => {
+            let newAccessToken = response.headers.get('access-token');
+            if(typeof newAccessToken !== "undefined") {
+                sessionStorage.setItem('access-token', newAccessToken);
+                console.log('headers aggiornati')
+            }
+            resolve(response)
+        });
+    }));
 };
 
