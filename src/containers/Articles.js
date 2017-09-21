@@ -4,16 +4,22 @@ import {fetchArticles, destroyArticle} from './../actions'
 import Article from './../components/article';
 
 
-const Articles = ({articles, fetch,destroyArticle , current_user_id}) => {
+const Articles = ({articles, fetch,destroyArticle , current_user}) => {
     articles = articles || [];
     return (
         <div>
             <button onClick={()=>{fetch()}}>fetch</button>
-            <button onClick={()=>{destroyArticle(18)}}>Cancella l' articolo 18</button>
             <div className="row">
                 {articles.map((article, i) => { return (
                     <div key={i} className="col-md-10 col-md-offset-1">
-                        <Article title={article.title} body={article.body} current_user_id={current_user_id}/>
+                        <Article
+                            title={article.title}
+                            body={article.body}
+                            id = {article.id}
+                            article_author_id={article.user_id}
+                            current_user={current_user}
+                            destroyArticle = {destroyArticle}
+                        />
                     </div>)
                 })}
             </div>
@@ -27,7 +33,7 @@ const Articles = ({articles, fetch,destroyArticle , current_user_id}) => {
 const mapStateToProps = state => {
     return {
         articles: state.articles.articles,
-        current_user_id : state.auth.user.id
+        current_user : state.auth.user
     }
 };
 

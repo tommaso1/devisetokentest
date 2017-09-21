@@ -148,9 +148,13 @@ export const destroyArticle = (id) => {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            debugger;
-            if(response.ok)
+
+            if(response.ok){
                 dispatch(articleDestroySuccess());
+                dispatch(fetchArticles());
+            }
+
+
             else
                 dispatch(articlesDestroyError(response.statusText));
         })
