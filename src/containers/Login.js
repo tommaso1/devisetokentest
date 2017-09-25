@@ -12,14 +12,20 @@ const Login = ({onClick, success}) => {
 
     return (
         <div>
-            <Nav/>
-            <h1>Login</h1>
+            <Nav className="menu-navbar"/>
+            <h1 className={'title'}>Login</h1>
             <LocalForm
                 onSubmit={(values) => onClick(values)}
             >
-                <Control.text type={'email'} model=".email" />
-                <Control.text type={'password'} model=".password" />
-                <button>Login!</button>
+                <div className={'form-group'}>
+                    <label htmlFor="email">Email</label>
+                    <Control.text className={'form-control'} type={'email'} model=".email" />
+                </div>
+                <div className={'form-group'}>
+                    <label htmlFor="password">Password</label>
+                    <Control.text className={'form-control'} type={'password'} model=".password" />
+                </div>
+                <button className="btn btn-primary">Login!</button>
             </LocalForm>
         </div>
     );

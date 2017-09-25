@@ -10,7 +10,7 @@ function auth(state = {
     isFetching: false,
     isAuthenticated: false,
     user: {id:null},
-    errorMessage: null,
+    errorMessage: {message: null, attributes: {}},
 }, action) {
     switch (action.type) {
         case LOGIN_REQUEST:
@@ -41,7 +41,8 @@ function auth(state = {
 function articles(state = {
     articles : [],
     isFetching : false,
-    errorMessage: null,
+    errorMessage: {message: null, attributes: {}},
+    successMessage : null
 }, action) {
     switch (action.type){
 
@@ -66,7 +67,9 @@ function articles(state = {
         case ARTICLE_CREATION_SUCCESS:
             return Object.assign({}, state, {
                 isFetching: false,
-                articles: action.articles
+                articles: action.articles,
+                errorMessage: {message:null, attributes:{}},
+                successMessage: action.message
             });
         case ARTICLE_CREATION_FAILURE:
             return Object.assign({}, state, {

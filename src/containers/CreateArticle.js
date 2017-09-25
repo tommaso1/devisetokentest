@@ -5,25 +5,40 @@ import {createArticle} from './../actions/index';
 import Nav from './nav';
 
 
-const CreateArticle = ({onClick, errorMessage}) => {
+const CreateArticle = ({onClick, errorMessage, successMessage}) => {
+    console.log(errorMessage, errorMessage.attributes.title !== null, errorMessage.attributes.body !== null);
+    let titleError = typeof errorMessage.attributes.title !== "undefined" ? ' has-error' : '';
+    let bodyError = typeof errorMessage.attributes.body !== "undefined" ? ' has-error' : '';
     return (
         <div>
             <Nav/>
-            <h1>Nuovo Articolo</h1>
+            <h1 className="title">Nuovo Articolo</h1>
+
             <LocalForm
                 onSubmit={(values) => onClick(values)}
             >
-                <label>titolo</label>
-                <Control.text model=".title" />
+                <div className={
+                    'form-group'+ titleError}>
+                    <label>Titolo</label>
+                    <Control.text className="form-control " model=".title" />
+                </div>
+                <div className={'form-group' + bodyError}>
+                    <label>Testo</label>
+                    <Control.text className="form-control"  model=".body" />
+                </div>
+
                 <br/>
-                <label>testo</label>
-                <Control.text model=".body" />
-                <br/>
-                <button>Submit</button>
+                <button className="btn btn-primary">Submit</button>
             </LocalForm>
-            {errorMessage !== null &&
+
+
+            {errorMessage.message !== null &&
             <div className="alert alert-danger">
-                <strong>Errore!</strong> {errorMessage}
+                <strong>Errore!</strong> {JSON.stringify(errorMessage.message)}
+            </div>}
+
+            {successMessage !== null && <div className="alert alert-success">
+                {successMessage}
             </div>}
         </div>
     );
@@ -33,6 +48,7 @@ const mapStateToProps = state => {
     return {
         current_user : state.auth.user,
         errorMessage: state.articles.errorMessage,
+        successMessage: state.articles.successMessage
     }
 };
 

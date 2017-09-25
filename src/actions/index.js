@@ -174,10 +174,11 @@ export const requestArticleCreation = () => {
         isFetching: true,
     }
 };
-export const articleCreationSuccess = () => {
+export const articleCreationSuccess = (message) => {
     return {
         type: ARTICLE_CREATION_SUCCESS,
         isFetching: false,
+        message
     }
 };
 export const articlesCreationError = (message) => {
@@ -202,13 +203,13 @@ export const createArticle = (article) => {
             })
         }).then((response) => {
             if (response.ok) {
-                dispatch(articleCreationSuccess());
+                dispatch(articleCreationSuccess('Articolo creato correttamente'));
             } else {
-
                 return response.json()
             }
         }).then((json)=>{
-            dispatch(articlesCreationError(json.message));
+            if(typeof json !== "undefined")
+            dispatch(articlesCreationError(json));
         })
     }
 

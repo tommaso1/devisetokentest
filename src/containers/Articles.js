@@ -14,9 +14,9 @@ class Articles extends React.Component  {
         let articles = this.props.articles || [];
         return (
             <div>
-                <div className="row">
+                <div className="articles">
                     {articles.map((article) => { return (
-                        <div key={article.id} className="col-md-10 col-md-offset-1">
+                        <div key={article.id}>
                             <Article
                                 title = {article.title}
                                 body = {article.body}

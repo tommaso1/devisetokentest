@@ -1,27 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
+
 
 class Nav extends React.Component{
 
       render(){
           return (
-              <nav className="navbar navbar-default">
+              <nav className={'navbar navbar-default '+ this.props.className}>
                   <div className="container-fluid">
                       <div className="navbar-header">
-                          <a className="navbar-brand" href="/">Prova react-redux</a>
+                          <Link className="navbar-brand" to="/">Prova react-redux</Link>
                       </div>
                       <ul className="nav navbar-nav">
                           <li className={this.props.match.url === '/' ? 'active': ''}>
-                              <a href="/">Home</a>
+                              <Link  to="/">Home</Link>
                           </li>
                           {this.props.userId !== null &&
                           <li className={this.props.match.url === '/new-article' ? 'active': ''}>
-                              <a href="/#/new-article">Crea un nuovo articolo</a>
+                              <Link to="/new-article">Crea un nuovo articolo</Link>
                           </li>}
                           {this.props.userId === null &&
                           <li className={this.props.match.url === '/login' ? 'active': ''}>
-                              <a href="/#/login">Log-In</a>
+                              <Link to="/login">Log-In</Link>
                           </li>}
 
                       </ul>
@@ -29,7 +30,7 @@ class Nav extends React.Component{
               </nav>
           )
       }
-};
+}
 
 const mapStateToProps = state => {
     return {
