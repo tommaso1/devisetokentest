@@ -7,13 +7,12 @@ export const authFetch = (url,config) => {
     config.headers['uid'] = sessionStorage.getItem('uid');
     let result = fetch(url, config);
 
-    return (new Promise((resolve)=>{
+    return (new Promise((resolve, reject)=>{
         result.then((response) => {
             let newAccessToken = response.headers.get('access-token');
-
-            if(typeof newAccessToken !== "undefined") {
+            if(typeof newAccessToken !== "undefined" && newAccessToken !== null) {
                 sessionStorage.setItem('access-token', newAccessToken);
-                console.log('headers aggiornati')
+                console.log('headers aggiornati', JSON.stringify(newAccessToken))
             }
             resolve(response)
         });
