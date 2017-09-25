@@ -13,6 +13,8 @@ import App from './components/App';
 import Index from './components/Index';
 import CreateArticle from './containers/CreateArticle';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 const loggerMiddleware = createLogger();
 let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, loggerMiddleware)(createStore);
 

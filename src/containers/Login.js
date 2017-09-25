@@ -4,6 +4,7 @@ import {performLogin} from './../actions/index';
 
 import { LocalForm, Control } from 'react-redux-form';
 import { Redirect } from 'react-router-dom';
+import Nav from './nav';
 
 const Login = ({onClick, success}) => {
 
@@ -11,6 +12,7 @@ const Login = ({onClick, success}) => {
 
     return (
         <div>
+            <Nav/>
             <h1>Login</h1>
             <LocalForm
                 onSubmit={(values) => onClick(values)}

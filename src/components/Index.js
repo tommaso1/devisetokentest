@@ -1,14 +1,12 @@
 import React from 'react'
 import Articles from './../containers/Articles';
 import './index.css';
+import Nav from './../containers/nav';
 
 const Index = () => (
     <div >
-
         <header className="nav">
-            <nav>
-                <a href={'/#/login'}>Link to login</a>
-            </nav>
+            <Nav/>
         </header>
         <main>
             <section className="title">

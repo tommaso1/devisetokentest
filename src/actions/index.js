@@ -204,8 +204,11 @@ export const createArticle = (article) => {
             if (response.ok) {
                 dispatch(articleCreationSuccess());
             } else {
-                dispatch(articlesCreationError(response.statusText));
+
+                return response.json()
             }
+        }).then((json)=>{
+            dispatch(articlesCreationError(json.message));
         })
     }
 

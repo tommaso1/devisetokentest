@@ -9,7 +9,8 @@ import {
 function auth(state = {
     isFetching: false,
     isAuthenticated: false,
-    user: {id:null}
+    user: {id:null},
+    errorMessage: null,
 }, action) {
     switch (action.type) {
         case LOGIN_REQUEST:
@@ -40,6 +41,7 @@ function auth(state = {
 function articles(state = {
     articles : [],
     isFetching : false,
+    errorMessage: null,
 }, action) {
     switch (action.type){
 

@@ -2,10 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { LocalForm, Control } from 'react-redux-form';
 import {createArticle} from './../actions/index';
+import Nav from './nav';
 
-const CreateArticle = ({onClick}) => {
+
+const CreateArticle = ({onClick, errorMessage}) => {
     return (
         <div>
+            <Nav/>
             <h1>Nuovo Articolo</h1>
             <LocalForm
                 onSubmit={(values) => onClick(values)}
@@ -18,13 +21,18 @@ const CreateArticle = ({onClick}) => {
                 <br/>
                 <button>Submit</button>
             </LocalForm>
+            {errorMessage !== null &&
+            <div className="alert alert-danger">
+                <strong>Errore!</strong> {errorMessage}
+            </div>}
         </div>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        current_user : state.auth.user
+        current_user : state.auth.user,
+        errorMessage: state.articles.errorMessage,
     }
 };
 
