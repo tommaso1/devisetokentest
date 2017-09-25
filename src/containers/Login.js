@@ -15,8 +15,7 @@ const Login = ({onClick, success}) => {
             <LocalForm
                 onSubmit={(values) => onClick(values)}
             >
-                <pre>User loggato: {JSON.stringify(success)}</pre>
-                <Control.text model=".email" />
+                <Control.text type={'email'} model=".email" />
                 <Control.text type={'password'} model=".password" />
                 <button>Login!</button>
             </LocalForm>

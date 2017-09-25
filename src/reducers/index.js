@@ -46,7 +46,6 @@ function articles(state = {
         case ARTICLES_FETCH_REQUEST:
             return Object.assign({}, state, {
                 isFetching: true,
-                articles: state.articles
             });
         case ARTICLES_FETCH_SUCCESS:
             return Object.assign({}, state, {
@@ -56,13 +55,11 @@ function articles(state = {
         case ARTICLES_FETCH_FAILURE:
             return Object.assign({}, state, {
                 isFetching: false,
-                articles : state.articles,
                 errorMessage: action.message
             });
         case ARTICLE_CREATION_REQUEST:
             return Object.assign({}, state, {
                 isFetching: true,
-                articles: state.articles
             });
         case ARTICLE_CREATION_SUCCESS:
             return Object.assign({}, state, {
@@ -72,13 +69,11 @@ function articles(state = {
         case ARTICLE_CREATION_FAILURE:
             return Object.assign({}, state, {
                 isFetching: false,
-                articles : state.articles,
                 errorMessage: action.message
             });
             case ARTICLE_DESTROY_REQUEST:
             return Object.assign({}, state, {
                 isFetching: true,
-                articles: state.articles
             });
         case ARTICLE_DESTROY_SUCCESS:
             return Object.assign({}, state, {
@@ -88,7 +83,6 @@ function articles(state = {
         case ARTICLE_DESTROY_FAILURE:
             return Object.assign({}, state, {
                 isFetching: false,
-                articles : state.articles,
                 errorMessage: action.message
             });
         default:

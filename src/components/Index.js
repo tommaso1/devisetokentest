@@ -1,11 +1,26 @@
 import React from 'react'
 import Articles from './../containers/Articles';
+import './index.css';
 
 const Index = () => (
-    <div>
-        <h1>Lista degli articoli</h1>
-        <a href={'/#/login'}>Link to login</a>
-        <Articles/>
+    <div >
+
+        <header className="nav">
+            <nav>
+                <a href={'/#/login'}>Link to login</a>
+            </nav>
+        </header>
+        <main>
+            <section className="title">
+                <h1>Home Page</h1>
+            </section>
+            <section className="articles">
+                <Articles/>
+            </section>
+
+        </main>
+
+
     </div>
 );
 
