@@ -14,20 +14,18 @@ class Articles extends React.Component  {
         let articles = this.props.articles || [];
         return (
             <div>
-                <div className="articles">
-                    {articles.map((article) => { return (
-                        <div key={article.id}>
-                            <Article
-                                title = {article.title}
-                                body = {article.body}
-                                id = {article.id}
-                                article_author_id={article.user_id}
-                                current_user={this.props.current_user}
-                                destroyArticle = {this.props.destroyArticle}
-                            />
-                        </div>)
-                    })}
-                </div>
+                {articles.map((article) => { return (
+                    <div key={article.id}>
+                        <Article
+                            title = {article.title}
+                            body = {article.body}
+                            id = {article.id}
+                            article_author_id={article.user_id}
+                            current_user={this.props.current_user}
+                            destroyArticle = {this.props.destroyArticle}
+                        />
+                    </div>)
+                })}
             </div>
         );
     }

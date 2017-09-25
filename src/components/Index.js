@@ -4,11 +4,11 @@ import './index.css';
 import Nav from './../containers/nav';
 
 const Index = () => (
-    <div>
-        <header className="nav">
+    <div className="grid-container">
+        <header className="nav menu-navbar">
             <Nav/>
         </header>
-        <main>
+        <main className="page-content">
             <section className="title">
                 <h1>Lista degli articoli</h1>
             </section>
