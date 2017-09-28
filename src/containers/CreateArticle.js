@@ -10,11 +10,11 @@ const CreateArticle = ({onClick, errorMessage, successMessage}) => {
     let titleError = typeof errorMessage.attributes.title !== "undefined" ? ' has-error' : '';
     let bodyError = typeof errorMessage.attributes.body !== "undefined" ? ' has-error' : '';
     return (
-        <div>
-            <Nav/>
+        <div className="grid-container">
+            <Nav className="menu-navbar"/>
             <h1 className="title">Nuovo Articolo</h1>
 
-            <LocalForm
+            <LocalForm className="page-content"
                 onSubmit={(values) => onClick(values)}
             >
                 <div className={
@@ -24,7 +24,7 @@ const CreateArticle = ({onClick, errorMessage, successMessage}) => {
                 </div>
                 <div className={'form-group' + bodyError}>
                     <label>Testo</label>
-                    <Control.text className="form-control"  model=".body" />
+                    <Control.text className="form-control" model=".body" />
                 </div>
 
                 <br/>

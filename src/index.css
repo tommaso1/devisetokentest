@@ -1,87 +1,56 @@
-
-
-
-
 .grid-container {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 25% 25% auto 25%;
-    width: 100%;
-    grid-row-gap: 0;
-    grid-column-gap: 0;
-}
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 25% 25% auto 25%;
+  width: 100%;
+  grid-row-gap: 0;
+  grid-column-gap: 0; }
 
 .menu-navbar {
-
-    grid-row: 1;
-    grid-column: 1/6;
-
-}
+  grid-row: 1;
+  grid-column: 1/6; }
 
 .page-content {
-    grid-row: 2;
-    grid-column: 2/5;
-}
-
-.title {
-
-    text-align: center;
-}
+  grid-row: 3;
+  grid-column: 2/5; }
 
 .article {
-    display: grid;
-    background-color: aqua;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 25% 25% auto 25%;
-    grid-row-gap: 0;
-    grid-column-gap: 0;
-}
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 25% 25% auto 25%;
+  grid-row-gap: 0;
+  grid-column-gap: 0; }
 
 .article-title {
-    grid-row:1;
-    grid-column:1/6;
-    background-color: red;
-}
+  grid-row: 1;
+  grid-column: 1/6; }
 
 .article-body {
-    grid-row:2;
-    grid-column:1/5;
-    background-color: yellow;
-}
+  grid-row: 2;
+  grid-column: 1/5; }
 
 .article-button {
-    grid-row: 2;
-    grid-column: 5;
-    width: 8em;
-    float: right;
-}
+  grid-row: 2;
+  grid-column: 5;
+  width: 8em; }
 
-
+.title {
+  text-align: center;
+  grid-row: 2;
+  grid-column: 1/6; }
 
 /*
 questo si applica ai div che non usano il grid in maniera da restare compatibili
 */
 @media (max-width: 400px) {
-    .article-body {
-        grid-row:2;
-        grid-column:1/6;
-
-    }
-    .article-button {
-        grid-row: 3;
-        grid-column: 3;
-        width: 8em;
-        float: right;
-
-    }
-
-    .page-content {
-        grid-row: 2;
-        grid-column: 1/6;
-    }
-
-    body {
-        background-color: chartreuse;
-    }
-
-}
+  .article-body {
+    grid-row: 2;
+    grid-column: 1/6; }
+  .article-button {
+    grid-row: 3;
+    grid-column: 3;
+    width: 8em;
+    float: right; }
+  .page-content {
+    grid-row: 2;
+    grid-column: 1/6; } }

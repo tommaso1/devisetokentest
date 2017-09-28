@@ -11,10 +11,10 @@ const Login = ({onClick, success}) => {
     if (success) return <Redirect to={'/'}/>;
 
     return (
-        <div>
+        <div className="grid-container">
             <Nav className="menu-navbar"/>
-            <h1 className={'title'}>Login</h1>
-            <LocalForm
+            <h1 className="title">Login</h1>
+            <LocalForm className="page-content"
                 onSubmit={(values) => onClick(values)}
             >
                 <div className={'form-group'}>
@@ -23,7 +23,7 @@ const Login = ({onClick, success}) => {
                 </div>
                 <div className={'form-group'}>
                     <label htmlFor="password">Password</label>
-                    <Control.text className={'form-control'} type={'password'} model=".password" />
+                    <Control.text className="form-control" type={'password'} model=".password" />
                 </div>
                 <button className="btn btn-primary">Login!</button>
             </LocalForm>
