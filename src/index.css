@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 25% 25% auto 25%;
+  grid-template-rows: auto auto auto auto;
   width: 100%;
   grid-row-gap: 0;
   grid-column-gap: 0; }
@@ -10,8 +10,16 @@
   grid-row: 1;
   grid-column: 1/6; }
 
+.title {
+  text-align: center;
+  grid-row: 2;
+  grid-column: 1/6;
+  transition: 2s all ease; }
+  .title :hover {
+    color: aqua; }
+
 .page-content {
-  grid-row: 3;
+  grid-row: 4;
   grid-column: 2/5; }
 
 .article {
@@ -34,19 +42,23 @@
   grid-column: 5;
   width: 8em; }
 
-.title {
-  text-align: center;
-  grid-row: 2;
-  grid-column: 1/6; }
+@keyframes increase-size {
+  from {
+    font-size: 36px; }
+  to {
+    font-size: 42px; } }
+
+@keyframes decrease-size {
+  from {
+    font-size: 42px; }
+  to {
+    font-size: 36px; } }
 
 .grid-alert {
   margin-top: 2em;
-  grid-row: 4;
+  grid-row: 3;
   grid-column: 2/5; }
 
-/*
-questo si applica ai div che non usano il grid in maniera da restare compatibili
-*/
 @media (max-width: 1280px) {
   .grid-alert {
     margin-top: 2em;
@@ -54,6 +66,7 @@ questo si applica ai div che non usano il grid in maniera da restare compatibili
     grid-column: 1/6; }
   .page-content {
     margin-left: 1em;
+    margin-right: 1em;
     grid-row: 3;
     grid-column: 1/6; }
   .article-button {

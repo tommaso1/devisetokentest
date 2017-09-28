@@ -14,6 +14,7 @@ import Index from './components/Index';
 import CreateArticle from './containers/CreateArticle';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 import './index.css';
 
 const loggerMiddleware = createLogger();
