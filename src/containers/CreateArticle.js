@@ -33,11 +33,11 @@ const CreateArticle = ({onClick, errorMessage, successMessage}) => {
 
 
             {errorMessage.message !== null &&
-            <div className="alert alert-danger">
+            <div className="grid-alert alert alert-danger">
                 <strong>Errore!</strong> {JSON.stringify(errorMessage.message)}
             </div>}
 
-            {successMessage !== null && <div className="alert alert-success">
+            {successMessage !== null && <div className="grid-alert alert alert-success">
                 {successMessage}
             </div>}
         </div>
